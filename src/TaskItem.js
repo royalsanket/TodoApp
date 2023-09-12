@@ -1,11 +1,9 @@
-import { useState } from "react";
 
 export default function TaskItem({
   id,
   taskItem,
   isCompleted,
-  toggleComplete,
-  handleDeleteTask
+  toggleComplete
 })
  {
   return (
@@ -17,7 +15,7 @@ export default function TaskItem({
      {id}
      </div>
     </div>
-    <div class="col-9">
+    <div class="col-8">
        <div class="alert alert-info" role="alert">
        <span
         style={{
@@ -28,24 +26,19 @@ export default function TaskItem({
       </span>
       </div>
     </div>
-    <div class="col-1">
-    <button type="button" class="btn btn-primary" onClick={() => toggleComplete(id)}>{isCompleted ? "Completed" : "Pending"}</button>
-    
-    </div>
-    <div class="col-1">
    
+    <div class="col-1">
       <input
         type="checkbox"
         checked={isCompleted}
         onChange={() => toggleComplete(id)}
-      />
-      {/* <span
-        style={{
-          textDecorationLine: isCompleted ? "line-through" : "none"
-        }}
-      >
-        {taskItem}
-      </span> */}
+      ></input>
+    </div>
+
+    <div class="col-2">
+      <div class="alert alert-success" role="alert">
+        {isCompleted ? "Completed" : "Pending"}
+      </div>
     </div>
 
   </div>

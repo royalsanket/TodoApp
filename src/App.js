@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
 import "./styles.css";
 import TaskList from "./TaskList";
 
@@ -7,10 +6,8 @@ import TaskList from "./TaskList";
 export default function App() {
   const [List, setList] = useState([]);
   const getApiCall = async () => {
-    const { data, status } = await axios.get(
-      `https://jsonplaceholder.typicode.com/todos`
-    );
-
+    const response = await fetch(`https://jsonplaceholder.typicode.com/todos`);
+    const data = await response.json();
     console.log(data);
     setList(data);
   };

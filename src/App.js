@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
-import "./styles.css";
-import TaskList from "./TaskList";
-
+import { useEffect, useState } from 'react';
+import './styles.css';
+import TaskList from './TaskList';
+import React from 'react';
 
 export default function App() {
   const [List, setList] = useState([]);
@@ -13,7 +13,7 @@ export default function App() {
   };
 
   useEffect(() => {
-    console.log("render");
+    console.log('render');
     getApiCall();
   }, []);
 
@@ -27,14 +27,10 @@ export default function App() {
     setList(newList);
   };
 
-
   return (
     <div className="App">
       <h1 class="display-2 text-center">ToDo List</h1>
-      <TaskList
-        tasks={List}
-        toggleComplete={toggleComplete}     
-      />
+      <TaskList tasks={List} toggleComplete={toggleComplete} />
     </div>
   );
 }
